@@ -5,6 +5,7 @@ import edu.upc.eetac.dsa.dao.impl.UserDAOImpl;
 import edu.upc.eetac.dsa.models.LogInCredentials;
 import edu.upc.eetac.dsa.models.User;
 import edu.upc.eetac.dsa.models.SignUpCredentials;
+import edu.upc.eetac.dsa.models.UserRanking;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -45,9 +46,8 @@ public class UserService {
 
     public Response getRanking() {
 
-        List<String> ranking = this.userManager.getRanking();
-        GenericEntity<List<String>> entity = new GenericEntity<List<String>>(ranking) {};
-        return Response.status(201).entity(entity).build();
+        List<UserRanking> ranking = this.userManager.getRanking();
+        return Response.status(201).entity(ranking).build();
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

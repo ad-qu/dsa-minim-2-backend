@@ -98,7 +98,7 @@ public class ItemService {
             return Response.status(404).build();
         } else if (item == null) {
             return Response.status(405).build();
-        } else if (user.getCoins() < item.getPrice()) {
+        } else if (user.getPoints() < item.getPrice()) {
             return Response.status(402).build();
         } else if (inventoryManager.alreadyExists(username, itemname)){
             return Response.status(409).build();

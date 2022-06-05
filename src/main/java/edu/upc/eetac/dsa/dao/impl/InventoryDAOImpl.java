@@ -98,8 +98,8 @@ public class InventoryDAOImpl implements InventoryDAO {
         User user = (User) this.session.getByName(User.class, username);
         Item item = (Item) this.session.getByName(Item.class, itemname);
 
-        int coinBalance = user.getCoins() - item.getPrice();
-        user.setCoins(coinBalance);
+        int coinBalance = user.getPoints() - item.getPrice();
+        user.setPoints(coinBalance);
         this.session.update(user);
 
         this.addInventory(username, itemname);

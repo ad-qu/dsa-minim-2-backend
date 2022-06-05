@@ -53,11 +53,11 @@ public class User {
         this.email = email;
     }
 
-    public Integer getCoins() {
+    public Integer getPoints() {
         return points;
     }
 
-    public void setCoins(Integer coins) { this.points = coins; }
+    public void setPoints(Integer points) { this.points = points; }
 
     @Override
     public String toString() {

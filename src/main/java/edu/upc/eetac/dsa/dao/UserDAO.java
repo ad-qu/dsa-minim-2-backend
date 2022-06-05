@@ -1,6 +1,7 @@
 package edu.upc.eetac.dsa.dao;
 
 import edu.upc.eetac.dsa.models.User;
+import edu.upc.eetac.dsa.models.UserRanking;
 
 import java.beans.IntrospectionException;
 import java.util.List;
@@ -9,7 +10,7 @@ public interface UserDAO {
 
     ///+++ PART 2 DEL MINIM 2 -> GET ranking by points +++///
 
-    public List<String> getRanking();
+    public List<UserRanking> getRanking();
 
     ////////////////////////////////////////////////////////
 

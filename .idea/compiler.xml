@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="DSA-ProjectBACKEND-main" />
+        <module name="dsa-minim-2-backend-main" />
         <module name="DSA-ProjectBACKEND" />
       </profile>
     </annotationProcessing>

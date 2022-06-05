@@ -2,6 +2,7 @@ package edu.upc.eetac.dsa.dao.impl;
 
 import edu.upc.eetac.dsa.dao.UserDAO;
 import edu.upc.eetac.dsa.models.User;
+import edu.upc.eetac.dsa.models.UserRanking;
 
 import java.beans.IntrospectionException;
 import java.util.*;
@@ -29,26 +30,34 @@ public class UserDAOImpl implements UserDAO {
     ///+++ PART 2 DEL MINIM 2 -> GET ranking by points +++///
 
     @Override
-    public List<String> getRanking() {
+    public List<UserRanking> getRanking() {
 
         List<User> userList = this.session.getAll(User.class);
-        List<String> usernames = new ArrayList<>();
+        List<UserRanking> userRank = new ArrayList<>();
 
         Collections.sort(userList, new Comparator<User>() {
 
             @Override
             public int compare(User o1, User o2) {
-                if (o1.getCoins() >= o2.getCoins())
+                if (o1.getPoints() >= o2.getPoints())
                     return 1;
-                if (o1.getCoins() < o2.getCoins())
+                if (o1.getPoints() < o2.getPoints())
                     return -1;
                 return 0;
             }
         });
 
-        userList.forEach(u -> usernames.add(u.getName()));
+        UserRanking u = new UserRanking();
 
-        return usernames;
+        for (int i = 0; i < userList.size(); i ++) {
+
+            String name = userList.get(i).getName();
+            int points = userList.get(i).getPoints();
+
+            u.setName(name); u.setPoints(points);
+            userRank.add(u);
+        }
+        return userRank;
     }
 
     ////////////////////////////////////////////////////////
